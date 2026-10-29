@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security Architecture — Hollow Browser | Sandboxed &amp; Keychain-Hardened</title>
+  <meta name="description" content="Technical details on Hollow’s security architecture: macOS App Sandbox, WebKit process isolation, and AES-256 Keychain encryption via Apple’s Secure Enclave.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#FBF9F5">
+  <link rel="canonical" href="https://hollowbrowser.com/security.html">
+
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/app_icon_512.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://hollowbrowser.com/security.html">
+  <meta property="og:site_name" content="Hollow Browser">
+  <meta property="og:title" content="Security Architecture — Hollow Browser">
+  <meta property="og:description" content="Deep-dive into Hollow's multi-process sandboxing, ATS network encryption, and hardware Keychain security.">
+  <meta property="og:image" content="https://hollowbrowser.com/assets/hollow-browser-hero.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Security Architecture — Hollow Browser">
+  <meta name="twitter:description" content="Hardened by Apple Sandboxing and Secure Enclave.">
+  <meta name="twitter:image" content="https://hollowbrowser.com/assets/hollow-browser-hero.png">
+
+  <!-- Montserrat, Playwrite Italia Tradizionale & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Playwrite+IT+Trad:wght@100..400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- FLOATING TOP NAVIGATION PILL -->
+  <header class="top-nav-dock">
+    <nav class="nav-pill" aria-label="Main Navigation">
+      <a href="index.html" class="nav-brand-logo" aria-label="Hollow Home">
+        <img src="assets/hollow-arch-logo.png" alt="Hollow Logo" class="nav-logo-img">
+      </a>
+      <div class="nav-links">
+        <a href="https://hollowversions.carrd.co/" target="_blank" rel="noopener">What's New</a>
+        <a href="https://hollowversions.carrd.co/" target="_blank" rel="noopener">Versions</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="subpage-main">
+    <div class="subpage-header">
+      <span class="subpage-badge">SECURITY ARCHITECTURE</span>
+      <h1 class="subpage-title">Hardened by Apple Sandboxing</h1>
+      <p class="subpage-subtitle">
+        How Hollow enforces process boundaries, cryptographic storage, and network isolation on macOS.
+      </p>
+      <div class="subpage-meta">macOS Sandbox Compliant &bull; Hardened Runtime &bull; WebKit Isolated</div>
+    </div>
+
+    <article class="content-body">
+      <h2>1. macOS App Sandbox &amp; Entitlements</h2>
+      <p>
+        Hollow is compiled with Apple's Hardened Runtime and strict macOS App Sandbox entitlements (<code>com.apple.security.app-sandbox</code>). The browser is restricted to outgoing network connections (<code>network.client</code>) and user-selected storage.
+      </p>
+      <div class="callout-box">
+        <strong>No File System Wandering:</strong> Hollow has zero access to arbitrary folders on your Mac, such as Documents, Desktop, or Downloads, unless explicitly granted through native macOS open panels.
+      </div>
+
+      <h2>2. Process Isolation per WKWebView Tab</h2>
+      <p>
+        Every browser tab runs in its own decoupled WebKit rendering process. Web execution occurs in isolated WebContent processes:
+      </p>
+      <ul>
+        <li><strong>Crash Resilience:</strong> If an untrusted script or heavy web page crashes, only that individual tab is terminated without taking down your window or AI chat.</li>
+        <li><strong>Memory Safety:</strong> Swift's memory safety prevents buffer overflows, use-after-free exploits, and pointer corruptions.</li>
+      </ul>
+
+      <h2>3. Apple Keychain &amp; Secure Enclave</h2>
+      <p>
+        Hollow integrates with macOS Keychain Services (<code>Security.framework</code>). When you store your Groq or Gemini API keys, they are encrypted with AES-256 via Apple's Secure Enclave.
+      </p>
+
+      <h2>4. Vulnerability Disclosure</h2>
+      <p>
+        If you discover a security issue or potential vulnerability in Hollow's architecture, please report it directly through our GitHub issue tracker or contact security maintainers directly. We commit to reviewing reports within 48 hours.
+      </p>
+    </article>
+  </main>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-columns">
+        <div class="footer-col">
+          <h3>PRODUCT</h3>
+          <ul>
+            <li><a href="https://hollowversions.carrd.co/" target="_blank" rel="noopener">FOR WORK</a></li>
+            <li><a href="https://hollowversions.carrd.co/" target="_blank" rel="noopener">RELEASE NOTES</a></li>
+            <li><a href="https://hollowversions.carrd.co/" target="_blank" rel="noopener">CHANGELOG</a></li>
+            <li><a href="https://hollowversions.carrd.co/" target="_blank" rel="noopener">MACOS</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>RESOURCES</h3>
+          <ul>
+            <li><a href="help.html">HELP</a></li>
+            <li><a href="status.html">STATUS</a></li>
+            <li><a href="privacy.html">PRIVACY</a></li>
+            <li><a href="terms.html">TERMS OF USE</a></li>
+            <li><a href="security.html">SECURITY</a></li>
+            <li><a href="trust.html">TRUST CENTER</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>COMPANY</h3>
+          <ul>
+            <li><a href="careers.html">CAREERS</a></li>
+            <li><a href="newsletter.html">NEWSLETTER</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div class="footer-copy">COPYRIGHT &copy; 2026</div>
+        <div class="footer-location">DESIGNED AND BUILT FOR MACOS</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE DEVICE ACCESS NOTICE -->
+  <div class="mobile-device-gate" aria-label="Desktop Only Notice">
+    <img src="assets/hollow-arch-logo.png" alt="Hollow Logo" class="mobile-gate-icon">
+    <p class="mobile-gate-text">This website is only accessible on desktop devices.</p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

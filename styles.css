@@ -1,0 +1,844 @@
+/* ==============================================================================
+   HOLLOW — Dia Browser Exact Visual Match Stylesheet
+   Refined with Hollow Mesh Gradient, Native Apple Physics, and Precise Spacing
+   ============================================================================== */
+
+/* --------------------------------------------------
+   1. Reset & Global Foundations
+   -------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Hollow Brand Palette */
+  --hl-indigo: #1F38C6;
+  --hl-blue:   #2E73F0;
+  --hl-sky:    #3DB0FA;
+  --hl-yellow: #FAD661;
+  --hl-coral:  #FA8561;
+  --hl-pink:   #F5477B;
+
+  --hollow-gradient: linear-gradient(135deg, #1F38C6 0%, #2E73F0 25%, #3DB0FA 45%, #FAD661 68%, #FA8561 84%, #F5477B 100%);
+  --hollow-gradient-h: linear-gradient(90deg, #1F38C6, #2E73F0, #3DB0FA, #FAD661, #FA8561, #F5477B);
+
+  /* Apple-standard spring physics curve */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --speed-fast: 0.18s;
+  --speed-normal: 0.36s;
+  --speed-slow: 0.65s;
+}
+
+html {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  background-color: #FBF9F5;
+  color: #1A1917;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #FBF9F5;
+  position: relative;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* --------------------------------------------------
+   2. Floating Top Navigation Pill
+   -------------------------------------------------- */
+.top-nav-dock {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  pointer-events: auto;
+  transition: transform var(--speed-normal) var(--ease-spring), opacity var(--speed-normal) ease;
+  animation: navEntrance 0.8s var(--ease-spring) both;
+}
+
+@keyframes navEntrance {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+.nav-pill {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  padding: 8px 24px 8px 16px;
+  border-radius: 999px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: box-shadow var(--speed-fast) ease, transform var(--speed-fast) var(--ease-spring);
+}
+
+.nav-pill:hover {
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+}
+
+.nav-brand-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  transition: transform var(--speed-fast) var(--ease-spring);
+}
+
+.nav-brand-logo:hover {
+  transform: scale(1.08);
+}
+
+.nav-logo-img {
+  height: 24px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #38342E;
+  letter-spacing: -0.01em;
+  position: relative;
+  transition: color var(--speed-fast) ease;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: #1A1917;
+  transition: width var(--speed-fast) var(--ease-spring);
+}
+
+.nav-links a:hover {
+  color: #000000;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* --------------------------------------------------
+   3. Hero Section (Custom Gradient from First Pic)
+   -------------------------------------------------- */
+.hero-section {
+  position: relative;
+  background: #0E1638 url('assets/hero-gradient.png') center top / cover no-repeat;
+  padding: 125px 24px 110px;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Feathered smooth fade-out at the bottom of the background image */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 240px;
+  background: linear-gradient(to bottom, rgba(251, 249, 245, 0) 0%, rgba(251, 249, 245, 0.65) 60%, #FBF9F5 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Soft ambient lighting overlay */
+.sunlight-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.leaf-shadow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.35;
+  will-change: transform;
+}
+
+.leaf-shadow.s1 {
+  width: 500px;
+  height: 500px;
+  background: rgba(31, 56, 198, 0.45);
+  top: -100px;
+  left: -80px;
+  animation: ambientFloat 20s infinite alternate ease-in-out;
+}
+
+.leaf-shadow.s2 {
+  width: 520px;
+  height: 520px;
+  background: rgba(245, 71, 123, 0.38);
+  top: 20%;
+  right: -80px;
+  animation: ambientFloat 24s infinite alternate-reverse ease-in-out;
+}
+
+.leaf-shadow.s3 {
+  width: 440px;
+  height: 440px;
+  background: rgba(250, 214, 97, 0.3);
+  top: 15%;
+  left: 30%;
+  filter: blur(80px);
+}
+
+.leaf-shadow.s4 {
+  width: 500px;
+  height: 500px;
+  background: rgba(46, 115, 240, 0.3);
+  bottom: 0;
+  left: 10%;
+}
+
+@keyframes ambientFloat {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(25px, 20px) scale(1.05); }
+  100% { transform: translate(-20px, 15px) scale(0.97); }
+}
+
+.hero-container {
+  position: relative;
+  z-index: 3;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Subtitle in Montserrat */
+.hero-tagline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(17px, 2.3vw, 26px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+  animation: fadeUp 0.8s 0.1s var(--ease-spring) both;
+}
+
+/* Title in Playwrite Italia Tradizionale without dot, shifted up */
+.hero-giant-title {
+  font-family: 'Playwrite IT Trad', cursive;
+  font-size: clamp(52px, 11vw, 138px);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #FFFFFF;
+  display: block;
+  text-align: center;
+  user-select: none;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
+  margin-bottom: -18px; /* Tucks screenshot higher up */
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 0.9s 0.2s var(--ease-spring) both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Browser Window Mockup Container (Frameless) */
+.hero-window-wrapper {
+  position: relative;
+  z-index: 3;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 12px;
+  perspective: 1200px;
+  animation: fadeUp 1s 0.35s var(--ease-spring) both;
+}
+
+.hero-window {
+  background: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  line-height: 0;
+  overflow: visible;
+  transition: transform var(--speed-normal) var(--ease-spring);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.hero-screenshot-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: none;
+  outline: none;
+  filter: drop-shadow(0 32px 80px rgba(0, 0, 0, 0.48));
+}
+
+/* --------------------------------------------------
+   4. Sticky Bottom Dock & Curved Arch Button
+   -------------------------------------------------- */
+.bottom-dock-wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  pointer-events: none;
+}
+
+.bottom-arch-canvas {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 24px;
+}
+
+.arch-svg-shape {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 140px;
+  pointer-events: none;
+  filter: drop-shadow(0 -8px 24px rgba(0, 0, 0, 0.05));
+}
+
+.dock-actions {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.btn-download-black {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #000000;
+  color: #FFFFFF;
+  padding: 15px 36px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 500;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+  transition: transform var(--speed-fast) var(--ease-spring), box-shadow var(--speed-fast) ease, background-color var(--speed-fast) ease;
+}
+
+.btn-download-black:hover {
+  background: #1A1A1A;
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.35);
+}
+
+.btn-download-black:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-download-black .arrow-down {
+  font-size: 16px;
+  transition: transform var(--speed-fast) ease;
+}
+
+.btn-download-black:hover .arrow-down {
+  transform: translateY(2px);
+}
+
+.dock-subtext {
+  font-size: 11.5px;
+  color: #767064;
+  margin-top: 8px;
+  font-weight: 500;
+  user-select: none;
+}
+
+/* --------------------------------------------------
+   9. Footer (Frame 10)
+   -------------------------------------------------- */
+.site-footer {
+  background: #FFFFFF;
+  border-top: 1px solid #ECE7DE;
+  padding: 80px 48px 130px; /* Room for the bottom dock */
+  position: relative;
+  z-index: 10;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  margin-bottom: 60px;
+}
+
+.footer-col h3 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #1A1917;
+  margin-bottom: 20px;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-col a {
+  font-size: 12px;
+  font-weight: 500;
+  color: #767064;
+  letter-spacing: 0.04em;
+  transition: color var(--speed-fast) ease;
+}
+
+.footer-col a:hover {
+  color: #1A1917;
+}
+
+.footer-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #F0ECE4;
+  padding-top: 32px;
+  font-size: 11px;
+  color: #8C8578;
+  letter-spacing: 0.08em;
+}
+
+/* --------------------------------------------------
+   6. Subpages & Content Layout Styles
+   -------------------------------------------------- */
+.subpage-main {
+  min-height: calc(100vh - 280px);
+  padding: 130px 24px 90px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.subpage-header {
+  margin-bottom: 48px;
+  border-bottom: 1px solid #ECE7DE;
+  padding-bottom: 32px;
+}
+
+.subpage-badge {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #2E73F0;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.subpage-title {
+  font-family: 'Newsreader', 'Fraunces', Georgia, serif;
+  font-size: clamp(36px, 4.8vw, 56px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: #1A1917;
+  margin-bottom: 14px;
+}
+
+.subpage-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: #6E685C;
+  max-width: 680px;
+}
+
+.subpage-meta {
+  font-size: 12px;
+  color: #9C9486;
+  margin-top: 16px;
+  font-weight: 500;
+}
+
+/* Rich Content Typography */
+.content-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: #2E2B25;
+}
+
+.content-body h2 {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: #1A1917;
+  margin: 36px 0 14px;
+  letter-spacing: -0.01em;
+}
+
+.content-body h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1A1917;
+  margin: 24px 0 10px;
+}
+
+.content-body p {
+  margin-bottom: 18px;
+  color: #4D473E;
+}
+
+.content-body ul, .content-body ol {
+  margin: 0 0 20px 24px;
+  color: #4D473E;
+}
+
+.content-body li {
+  margin-bottom: 8px;
+}
+
+.content-body code {
+  font-family: 'JetBrains Mono', Menlo, Monaco, monospace;
+  font-size: 13.5px;
+  background: #EFEBE3;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #1A1917;
+}
+
+.callout-box {
+  background: #F4EFE6;
+  border-left: 3px solid #2E73F0;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 24px 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+/* Status Page Components */
+.status-indicator-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #E8F5E9;
+  border: 1px solid #C8E6C9;
+  border-radius: 16px;
+  padding: 18px 24px;
+  margin-bottom: 36px;
+  color: #2E7D32;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.status-dot-pulse {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #43A047;
+  box-shadow: 0 0 10px #43A047;
+  animation: pulseGentle 1.8s infinite ease-in-out;
+}
+
+.status-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.status-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #FFFFFF;
+  border: 1px solid #ECE7DE;
+  border-radius: 14px;
+  padding: 16px 22px;
+}
+
+.status-service-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1A1917;
+}
+
+.status-badge-ok {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #2E7D32;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Careers Page Components */
+.empty-state-card {
+  background: #FFFFFF;
+  border: 1px dashed #D2CABF;
+  border-radius: 20px;
+  padding: 48px 32px;
+  text-align: center;
+  margin: 32px 0 40px;
+}
+
+.empty-state-card h3 {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #1A1917;
+  margin-bottom: 10px;
+}
+
+.empty-state-card p {
+  font-size: 14.5px;
+  color: #6E685C;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* Newsletter Page Components */
+.newsletter-form-wrap {
+  background: #FFFFFF;
+  border: 1px solid #ECE7DE;
+  border-radius: 24px;
+  padding: 40px 36px;
+  max-width: 540px;
+  margin: 24px auto 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.newsletter-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.newsletter-input-group label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #38342E;
+}
+
+.newsletter-input {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1px solid #D6CEBE;
+  border-radius: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #1A1917;
+  background: #FBF9F5;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.newsletter-input:focus {
+  border-color: #2E73F0;
+  box-shadow: 0 0 0 3px rgba(46, 115, 240, 0.15);
+  background: #FFFFFF;
+}
+
+.btn-subscribe {
+  background: #000000;
+  color: #FFFFFF;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-size: 14.5px;
+  font-weight: 500;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+  cursor: pointer;
+}
+
+.btn-subscribe:hover {
+  background: #222222;
+  transform: translateY(-1px);
+}
+
+.btn-subscribe:active {
+  transform: scale(0.98);
+}
+
+.newsletter-error-message {
+  display: none;
+  background: #FFEBEE;
+  border: 1px solid #FFCDD2;
+  color: #C62828;
+  font-size: 13.5px;
+  line-height: 1.5;
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-top: 14px;
+  text-align: left;
+  animation: fadeIn 0.25s ease;
+}
+
+/* 404 Page (Exact match to uploaded image) */
+.error-page-main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #FBF9F5;
+  padding: 24px;
+  text-align: center;
+}
+
+.error-code {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  font-size: clamp(68px, 10vw, 104px);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: #1D1D1F;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.error-text {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #242426;
+  margin-bottom: 36px;
+  letter-spacing: -0.01em;
+}
+
+.btn-error-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+  color: #FFFFFF;
+  padding: 14px 28px;
+  border-radius: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.btn-error-home:hover {
+  background: #222222;
+  transform: translateY(-1px);
+}
+
+.btn-error-home:active {
+  transform: scale(0.98);
+}
+
+/* --------------------------------------------------
+   7. Mobile Only Notice & Responsive Breakpoints
+   -------------------------------------------------- */
+.mobile-device-gate {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* Clean, basic unboxed notice on mobile */
+  .mobile-device-gate {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99999;
+    background-color: #FBF9F5;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 32px;
+    text-align: center;
+  }
+
+  .mobile-gate-icon {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .mobile-gate-text {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #4D473E;
+    max-width: 260px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+  }
+}
+
+@media (max-width: 960px) {
+  .footer-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

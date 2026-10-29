@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Newsletter &amp; Release Dispatch — Hollow Browser</title>
+  <meta name="description" content="Subscribe to Hollow Dispatch for release updates, performance benchmarks, and engineering insights.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#FBF9F5">
+  <link rel="canonical" href="https://hollowbrowser.com/newsletter.html">
+
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/app_icon_512.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hollowbrowser.com/newsletter.html">
+  <meta property="og:site_name" content="Hollow Browser">
+  <meta property="og:title" content="Newsletter — Hollow Browser">
+  <meta property="og:description" content="Subscribe to Hollow Dispatch for release notes and web platform engineering essays.">
+  <meta property="og:image" content="https://hollowbrowser.com/assets/hollow-browser-hero.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Newsletter — Hollow Browser">
+  <meta name="twitter:description" content="Subscribe to Hollow Dispatch.">
+  <meta name="twitter:image" content="https://hollowbrowser.com/assets/hollow-browser-hero.png">
+
+  <!-- Montserrat, Playwrite Italia Tradizionale & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Playwrite+IT+Trad:wght@100..400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- FLOATING TOP NAVIGATION PILL -->
+  <header class="top-nav-dock">
+    <nav class="nav-pill" aria-label="Main Navigation">
+      <a href="index.html" class="nav-brand-logo" aria-label="Hollow Home">
+        <img src="assets/hollow-arch-logo.png" alt="Hollow Logo" class="nav-logo-img">
+      </a>
+      <div class="nav-links">
+        <a href="https://hollowversions.carrd.co/" target="_blank" rel="noopener">What's New</a>
+        <a href="https://hollowversions.carrd.co/" target="_blank" rel="noopener">Versions</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="subpage-main">
+    <div class="subpage-header" style="text-align: center;">
+      <span class="subpage-badge">IN THE LOOP</span>
+      <h1 class="subpage-title">Hollow Dispatch</h1>
+      <p class="subpage-subtitle" style="margin: 0 auto;">
+        Occasional reflections on native software engineering, web platform evolution, and Hollow release changelogs.
+      </p>
+    </div>
+
+    <!-- Newsletter subscription form -->
+    <div class="newsletter-form-wrap">
+      <form id="newsletter-form" class="newsletter-form" onsubmit="return false;">
+        <div class="newsletter-input-group">
+          <label for="newsletter-email">Email Address</label>
+          <input type="email" id="newsletter-email" class="newsletter-input" placeholder="you@workplace.com" required autocomplete="email">
+        </div>
+        <button type="submit" id="btn-newsletter-submit" class="btn-subscribe">
+          <span>Subscribe to Dispatch</span>
+        </button>
+
+        <!-- Simulated failure error box as requested -->
+        <div id="newsletter-error" class="newsletter-error-message" role="alert">
+          <strong>Subscription unavailable:</strong> We could not connect to the newsletter dispatch server at this time. Please check back later or view releases on Carrd.
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-columns">
+        <div class="footer-col">
+          <h3>PRODUCT</h3>
+          <ul>
+            <li><a href="https://hollowversions.carrd.co/" target="_blank" rel="noopener">FOR WORK</a></li>
+            <li><a href="https://hollowversions.carrd.co/" target="_blank" rel="noopener">RELEASE NOTES</a></li>
+            <li><a href="https://hollowversions.carrd.co/" target="_blank" rel="noopener">CHANGELOG</a></li>
+            <li><a href="https://hollowversions.carrd.co/" target="_blank" rel="noopener">MACOS</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>RESOURCES</h3>
+          <ul>
+            <li><a href="help.html">HELP</a></li>
+            <li><a href="status.html">STATUS</a></li>
+            <li><a href="privacy.html">PRIVACY</a></li>
+            <li><a href="terms.html">TERMS OF USE</a></li>
+            <li><a href="security.html">SECURITY</a></li>
+            <li><a href="trust.html">TRUST CENTER</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>COMPANY</h3>
+          <ul>
+            <li><a href="careers.html">CAREERS</a></li>
+            <li><a href="newsletter.html">NEWSLETTER</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div class="footer-copy">COPYRIGHT &copy; 2026</div>
+        <div class="footer-location">DESIGNED AND BUILT FOR MACOS</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE DEVICE ACCESS NOTICE -->
+  <div class="mobile-device-gate" aria-label="Desktop Only Notice">
+    <img src="assets/hollow-arch-logo.png" alt="Hollow Logo" class="mobile-gate-icon">
+    <p class="mobile-gate-text">This website is only accessible on desktop devices.</p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

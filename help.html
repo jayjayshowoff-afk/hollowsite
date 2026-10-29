@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help &amp; User Guide — Hollow Browser Documentation</title>
+  <meta name="description" content="Official documentation and help guide for Hollow Browser on macOS. Learn keyboard shortcuts, unified search, AI configuration, and data management.">
+  <meta name="keywords" content="Hollow help, Hollow documentation, Hollow keyboard shortcuts, macOS browser shortcuts, Hollow AI guide">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#FBF9F5">
+  <link rel="canonical" href="https://hollowbrowser.com/help.html">
+
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/app_icon_512.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://hollowbrowser.com/help.html">
+  <meta property="og:site_name" content="Hollow Browser">
+  <meta property="og:title" content="Help &amp; Documentation — Hollow Browser">
+  <meta property="og:description" content="Getting started, keyboard shortcuts, AI configuration, and troubleshooting for Hollow Browser on macOS.">
+  <meta property="og:image" content="https://hollowbrowser.com/assets/hollow-browser-hero.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Help &amp; Documentation — Hollow Browser">
+  <meta name="twitter:description" content="Official documentation and help guide for Hollow on macOS.">
+  <meta name="twitter:image" content="https://hollowbrowser.com/assets/hollow-browser-hero.png">
+
+  <!-- Breadcrumbs & TechArticle Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Hollow Browser User Guide and Documentation",
+    "description": "Comprehensive user guide covering keyboard shortcuts, navigation, and settings for Hollow.",
+    "url": "https://hollowbrowser.com/help.html",
+    "inLanguage": "en-US",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Hollow Browser",
+      "url": "https://hollowbrowser.com/"
+    }
+  }
+  </script>
+
+  <!-- Montserrat, Playwrite Italia Tradizionale & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Playwrite+IT+Trad:wght@100..400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- FLOATING TOP NAVIGATION PILL -->
+  <header class="top-nav-dock">
+    <nav class="nav-pill" aria-label="Main Navigation">
+      <a href="index.html" class="nav-brand-logo" aria-label="Hollow Home">
+        <img src="assets/hollow-arch-logo.png" alt="Hollow Logo" class="nav-logo-img">
+      </a>
+      <div class="nav-links">
+        <a href="https://hollowversions.carrd.co/" target="_blank" rel="noopener">What's New</a>
+        <a href="https://hollowversions.carrd.co/" target="_blank" rel="noopener">Versions</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="subpage-main">
+    <div class="subpage-header">
+      <span class="subpage-badge">DOCUMENTATION</span>
+      <h1 class="subpage-title">Help &amp; User Guide</h1>
+      <p class="subpage-subtitle">
+        Everything you need to know about navigating, customizing, and getting the most out of Hollow on macOS.
+      </p>
+      <div class="subpage-meta">Last updated for Hollow 1.0 &bull; macOS Sonoma &amp; Sequoia</div>
+    </div>
+
+    <article class="content-body">
+      <h2>1. Getting Started</h2>
+      <p>
+        Hollow is a fully native macOS browser built with Swift, SwiftUI, and WebKit. Unlike web apps packaged into Chromium or Electron, Hollow requires no background helper daemons and runs with native process sandboxing.
+      </p>
+      <div class="callout-box">
+        <strong>System Requirements:</strong> Apple Silicon Mac (M1, M2, M3, M4) running macOS 14.0 Sonoma or macOS 15.0 Sequoia.
+      </div>
+
+      <h2>2. Keyboard Shortcuts</h2>
+      <p>Hollow is designed to keep your hands on the home row with standard macOS keybindings:</p>
+      <ul>
+        <li><code>⌘ T</code> — Open a new tab with the translucent Start Page</li>
+        <li><code>⌘ W</code> — Close active tab</li>
+        <li><code>⌘ ⇧ T</code> — Reopen the most recently closed tab</li>
+        <li><code>⌘ L</code> — Focus the unified smart address &amp; search bar with auto-select</li>
+        <li><code>⌘ D</code> — Bookmark current page</li>
+        <li><code>⌘ R</code> — Reload current page</li>
+        <li><code>⌘ 1</code> through <code>⌘ 9</code> — Switch directly to tabs 1 through 9</li>
+        <li><code>⌘ ,</code> — Open Hollow Preferences and settings</li>
+      </ul>
+
+      <h2>3. Unified Address &amp; AI Search Bar</h2>
+      <p>
+        The unified field in the toolbar serves as both a fast URL navigator and an AI context prompt.
+      </p>
+      <ul>
+        <li><strong>URL Resolution:</strong> Domains without protocol (e.g. <code>github.com</code>) automatically resolve to HTTPS.</li>
+        <li><strong>Search Provider:</strong> Search queries route directly to your preferred engine (Google, DuckDuckGo, Bing, or Brave) configured in Settings.</li>
+        <li><strong>Chat Mode:</strong> Toggle to Chat mode to ask questions directly with your active tab's context.</li>
+      </ul>
+
+      <h2>4. Managing Local Data</h2>
+      <p>
+        Your browsing history and bookmarks are stored exclusively on your device in human-readable JSON files located at:
+      </p>
+      <p><code>~/Library/Application Support/Hollow/</code></p>
+      <p>
+        To clear cookies, caches, or WebKit storage, open <strong>Settings (⌘,)</strong> &rarr; <strong>Privacy</strong> &rarr; <strong>Clear Website Data</strong>.
+      </p>
+    </article>
+  </main>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-columns">
+        <div class="footer-col">
+          <h3>PRODUCT</h3>
+          <ul>
+            <li><a href="https://hollowversions.carrd.co/" target="_blank" rel="noopener">FOR WORK</a></li>
+            <li><a href="https://hollowversions.carrd.co/" target="_blank" rel="noopener">RELEASE NOTES</a></li>
+            <li><a href="https://hollowversions.carrd.co/" target="_blank" rel="noopener">CHANGELOG</a></li>
+            <li><a href="https://hollowversions.carrd.co/" target="_blank" rel="noopener">MACOS</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>RESOURCES</h3>
+          <ul>
+            <li><a href="help.html">HELP</a></li>
+            <li><a href="status.html">STATUS</a></li>
+            <li><a href="privacy.html">PRIVACY</a></li>
+            <li><a href="terms.html">TERMS OF USE</a></li>
+            <li><a href="security.html">SECURITY</a></li>
+            <li><a href="trust.html">TRUST CENTER</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>COMPANY</h3>
+          <ul>
+            <li><a href="careers.html">CAREERS</a></li>
+            <li><a href="newsletter.html">NEWSLETTER</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div class="footer-copy">COPYRIGHT &copy; 2026</div>
+        <div class="footer-location">DESIGNED AND BUILT FOR MACOS</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE DEVICE ACCESS NOTICE (BASIC & UNBOXED) -->
+  <div class="mobile-device-gate" aria-label="Desktop Only Notice">
+    <img src="assets/hollow-arch-logo.png" alt="Hollow Logo" class="mobile-gate-icon">
+    <p class="mobile-gate-text">This website is only accessible on desktop devices.</p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

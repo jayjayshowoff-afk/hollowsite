@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hollow — The Native AI Browser for macOS | Fast, Lightweight, Private</title>
+  <meta name="description" content="Hollow is the native AI-first browser for macOS. Built with Swift and WebKit for speed, zero telemetry, Keychain security, and conversational tab intelligence.">
+  <meta name="keywords" content="Hollow, Hollow browser, macOS browser, AI browser, native Mac browser, Swift WebKit browser, Apple Silicon browser, private browser, Dia browser, Arc browser alternative">
+  <meta name="author" content="Hollow Browser">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#FBF9F5">
+  <link rel="canonical" href="https://hollowbrowser.com/">
+
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/app_icon_512.png">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hollowbrowser.com/">
+  <meta property="og:site_name" content="Hollow Browser">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Hollow — The Native AI Browser for macOS">
+  <meta property="og:description" content="Browse at the speed of thought. 100% native Swift & WebKit with integrated AI intelligence, zero bloat, and hardware Keychain security.">
+  <meta property="og:image" content="https://hollowbrowser.com/assets/hollow-browser-hero.png">
+  <meta property="og:image:width" content="983">
+  <meta property="og:image:height" content="659">
+  <meta property="og:image:alt" content="Hollow Browser Dark Mode Interface on macOS">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://hollowbrowser.com/">
+  <meta name="twitter:title" content="Hollow — The Native AI Browser for macOS">
+  <meta name="twitter:description" content="The web, uninterrupted. Lightweight, native, context-aware browser engineered for Apple Silicon.">
+  <meta name="twitter:image" content="https://hollowbrowser.com/assets/hollow-browser-hero.png">
+  <meta name="twitter:image:alt" content="Hollow Browser Interface">
+
+  <!-- Structured Data: Schema.org SoftwareApplication, Organization, WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://hollowbrowser.com/#software",
+        "name": "Hollow",
+        "url": "https://hollowbrowser.com/",
+        "operatingSystem": "macOS 14.0 or later (Apple Silicon M1/M2/M3/M4)",
+        "applicationCategory": "BrowserApplication",
+        "softwareVersion": "1.0",
+        "description": "A lightweight, context-aware web browser crafted natively in Swift and WebKit for macOS.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Hollow Browser",
+          "url": "https://hollowbrowser.com/"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://hollowbrowser.com/#website",
+        "url": "https://hollowbrowser.com/",
+        "name": "Hollow Browser",
+        "description": "The native AI browser for macOS.",
+        "inLanguage": "en-US"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Montserrat, Playwrite Italia Tradizionale & Clean Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playwrite+IT+Trad:wght@100..400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- FLOATING TOP NAVIGATION PILL -->
+  <header class="top-nav-dock">
+    <nav class="nav-pill" aria-label="Main Navigation">
+      <a href="#" class="nav-brand-logo" aria-label="Hollow Home">
+        <img src="assets/hollow-arch-logo.png" alt="Hollow Arch Logo" class="nav-logo-img" width="28" height="24">
+      </a>
+      <div class="nav-links">
+        <a href="https://hollowversions.carrd.co/" target="_blank" rel="noopener">What's New</a>
+        <a href="https://hollowversions.carrd.co/" target="_blank" rel="noopener">Versions</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO SECTION (Warm Yellow Dappled Sunlight Backdrop) -->
+    <section class="hero-section">
+      <!-- Sunlight and leaf shadows overlay -->
+      <div class="sunlight-canvas" aria-hidden="true">
+        <div class="leaf-shadow s1"></div>
+        <div class="leaf-shadow s2"></div>
+        <div class="leaf-shadow s3"></div>
+        <div class="leaf-shadow s4"></div>
+      </div>
+
+      <div class="hero-container">
+        <!-- Subtitle in Montserrat -->
+        <p class="hero-tagline">The web, uninterrupted.</p>
+
+        <!-- Lowercase title in Playwrite Italia Tradizionale -->
+        <h1 class="hero-giant-title" aria-label="hollow">hollow</h1>
+
+        <!-- Centered Hero Window Showcase (Official Hollow Browser) -->
+        <div class="hero-window-wrapper">
+          <div class="hero-window" id="hero-window-card">
+            <img src="assets/hollow-browser-hero.png" alt="Hollow Browser Dark Mode Interface on macOS" class="hero-screenshot-img" id="hero-img" width="983" height="659" loading="eager" fetchpriority="high">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- STICKY FLOATING BOTTOM DOCK WITH CURVED ARCH & DOWNLOAD BUTTON -->
+  <div class="bottom-dock-wrapper" id="download-dock">
+    <div class="bottom-arch-canvas">
+      <svg class="arch-svg-shape" viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,120 L0,50 Q720,0 1440,50 L1440,120 Z" fill="#FFFFFF"></path>
+      </svg>
+      <div class="dock-actions">
+        <a href="https://hollowversions.carrd.co/" target="_blank" rel="noopener" class="btn-download-black" id="main-download-btn">
+          <span>Download Hollow for free</span>
+          <span class="arrow-down">&darr;</span>
+        </a>
+        <span class="dock-subtext">Available for macOS (Apple Silicon)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SITE FOOTER (Frame 10) -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-columns">
+        <!-- Col 1: Product -->
+        <div class="footer-col">
+          <h3>PRODUCT</h3>
+          <ul>
+            <li><a href="https://hollowversions.carrd.co/" target="_blank" rel="noopener">FOR WORK</a></li>
+            <li><a href="https://hollowversions.carrd.co/" target="_blank" rel="noopener">RELEASE NOTES</a></li>
+            <li><a href="https://hollowversions.carrd.co/" target="_blank" rel="noopener">CHANGELOG</a></li>
+            <li><a href="https://hollowversions.carrd.co/" target="_blank" rel="noopener">MACOS</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 2: Resources -->
+        <div class="footer-col">
+          <h3>RESOURCES</h3>
+          <ul>
+            <li><a href="help.html">HELP</a></li>
+            <li><a href="status.html">STATUS</a></li>
+            <li><a href="privacy.html">PRIVACY</a></li>
+            <li><a href="terms.html">TERMS OF USE</a></li>
+            <li><a href="security.html">SECURITY</a></li>
+            <li><a href="trust.html">TRUST CENTER</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Company -->
+        <div class="footer-col">
+          <h3>COMPANY</h3>
+          <ul>
+            <li><a href="careers.html">CAREERS</a></li>
+            <li><a href="newsletter.html">NEWSLETTER</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div class="footer-copy">COPYRIGHT &copy; 2026</div>
+        <div class="footer-location">DESIGNED AND BUILT FOR MACOS</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE DEVICE ACCESS NOTICE (BASIC & UNBOXED) -->
+  <div class="mobile-device-gate" aria-label="Desktop Only Notice">
+    <img src="assets/hollow-arch-logo.png" alt="Hollow Logo" class="mobile-gate-icon">
+    <p class="mobile-gate-text">This website is only accessible on desktop devices.</p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

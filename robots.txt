@@ -1,0 +1,7 @@
+# robots.txt for Hollow Browser
+User-agent: *
+Allow: /
+Disallow: /404.html
+
+# XML Sitemap
+Sitemap: https://hollowbrowser.com/sitemap.xml
