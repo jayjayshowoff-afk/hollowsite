@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Downloading Hollow</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      background-color: #FBF9F5;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <a id="dmg-link" href="assets/Hollow.dmg" download="Hollow.dmg" style="display:none;" aria-hidden="true"></a>
+
+  <script>
+    (function () {
+      // Trigger download immediately
+      var link = document.getElementById('dmg-link');
+      if (link) {
+        link.click();
+      } else {
+        var a = document.createElement('a');
+        a.href = 'assets/Hollow.dmg';
+        a.download = 'Hollow.dmg';
+        document.body.appendChild(a);
+        a.click();
+      }
+
+      // Attempt to close the window once download begins
+      function closeWindow() {
+        try {
+          window.open('', '_self', '');
+          window.close();
+        } catch (err) {
+          // Browser sandbox prevented close
+        }
+        try {
+          self.close();
+        } catch (err) {}
+      }
+
+      setTimeout(closeWindow, 350);
+      setTimeout(closeWindow, 1000);
+    })();
+  </script>
+</body>
+</html>
